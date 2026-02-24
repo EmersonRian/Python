@@ -99,9 +99,9 @@ while True:
 
 
     def nivel_estoque(fab):
-        for i, nivel in enumerate(estoque[fab], start=1):
+        for setor, nivel in enumerate(estoque[fab], start=1):
             if nivel < 50:
-                fabrica_baixo_nivel.append([fabrica[fab],i,nivel])
+                fabrica_baixo_nivel.append([fabrica[fab],setor,nivel])
             if nivel > 50:
                 continue   
 
