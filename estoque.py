@@ -73,27 +73,48 @@ fabrica_baixo_nivel = []
 # for nivel in enumerate(estoque[1], start=1):
 #     print(nivel)
 
+# fab = 0
+# while True:
+
+
+#     def nivel_estoque(fab):
+#         for nivel in estoque[fab]:
+#             if nivel < 50:
+#                 fabrica_baixo_nivel.append(fabrica[fab])
+#                 fabrica_baixo_nivel.append(nivel)
+
+#             if nivel > 50:
+#                 continue   
+
+#     nivel_estoque(fab)
+#     fab += 1
+#     if fab == 5:
+#         print(fabrica_baixo_nivel)
+            
+#         break
+
+          
 fab = 0
 while True:
 
 
     def nivel_estoque(fab):
-        for nivel in estoque[fab]:
+        for i, nivel in enumerate(estoque[fab], start=1):
             if nivel < 50:
-                fabrica_baixo_nivel.append(fabrica[fab])
-                fabrica_baixo_nivel.append(nivel)
+                fabrica_baixo_nivel.append([fabrica[fab],i,nivel])
             if nivel > 50:
                 continue   
 
     nivel_estoque(fab)
     fab += 1
     if fab == 5:
-        
         print(fabrica_baixo_nivel)
+        print()
+        for fabrica,setor, nivel in fabrica_baixo_nivel:
+            print(f"Na fabrica {fabrica}, o setor {setor} esta abaixo da media: {nivel}")
+
+            
         break
-
-          
-
 
 
 
