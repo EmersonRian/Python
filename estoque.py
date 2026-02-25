@@ -8,20 +8,20 @@
 
 # ]
 
-fabricas = ["fab1","fab2","fab3","fab4","fab5"]
+# fabricas = ["fab1","fab2","fab3","fab4","fab5"]
 
 
-estoque = [
+# estoque = [
     
-    [70,70,70,70,70,70],
-    [70,70,40,70,70,40],
-    [70,70,70,70,70,70],
-    [70,70,70,70,70,30],
-    [70,70,70,70,70,70], 
+#     [70,70,70,70,70,70],
+#     [70,70,40,70,70,40],
+#     [70,70,70,70,70,70],
+#     [70,70,70,70,70,30],
+#     [70,70,70,70,70,70], 
 
-]
+# ]
 
-fabrica_baixo_nivel = []
+# fabrica_baixo_nivel = []
 
 # class Verificar_nivel_estoque:
 
@@ -93,6 +93,21 @@ fabrica_baixo_nivel = []
             
 #         break
 
+fabricas = ["fab1","fab2","fab3","fab4","fab5"]
+
+
+estoque = [
+    
+    [70,70,70,70,70,70],
+    [70,70,40,70,70,40],
+    [70,70,70,70,70,70],
+    [70,70,70,70,70,30],
+    [70,70,70,70,70,70], 
+
+]
+
+fabrica_baixo_nivel = []
+
           
 fabrica = 0
 while True:
@@ -108,15 +123,11 @@ while True:
     nivel_estoque(fabrica)
     fabrica += 1
     if fabrica == 5:
-        print(fabrica_baixo_nivel)
-        print()
         for fabrica,setor, nivel in fabrica_baixo_nivel:
             print(f"Na fabrica {fabrica}, o setor {setor} esta abaixo da media: {nivel}")
 
             
         break
-
-
 
     
 
