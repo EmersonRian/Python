@@ -8,7 +8,7 @@
 
 # ]
 
-fabrica = ["fab1","fab2","fab3","fab4","fab5"]
+fabricas = ["fab1","fab2","fab3","fab4","fab5"]
 
 
 estoque = [
@@ -94,20 +94,20 @@ fabrica_baixo_nivel = []
 #         break
 
           
-fab = 0
+fabrica = 0
 while True:
 
 
-    def nivel_estoque(fab):
-        for setor, nivel in enumerate(estoque[fab], start=1):
+    def nivel_estoque(fabrica):
+        for setor, nivel in enumerate(estoque[fabrica], start=1):
             if nivel < 50:
-                fabrica_baixo_nivel.append([fabrica[fab],setor,nivel])
+                fabrica_baixo_nivel.append([fabricas[fabrica],setor,nivel])
             if nivel > 50:
                 continue   
 
-    nivel_estoque(fab)
-    fab += 1
-    if fab == 5:
+    nivel_estoque(fabrica)
+    fabrica += 1
+    if fabrica == 5:
         print(fabrica_baixo_nivel)
         print()
         for fabrica,setor, nivel in fabrica_baixo_nivel:
