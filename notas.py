@@ -5,5 +5,8 @@
 # nota_historia = input("Sua nota de Historia")
 
 
-# nota_matematica = input("Sua nota de matematica: ")
 
+depresivo = range(11)
+
+for i in reversed(depresivo):
+    print(i)
