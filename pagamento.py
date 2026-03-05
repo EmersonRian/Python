@@ -16,6 +16,7 @@
 
 #  4 - Parcelado no cartão em três vezes ou mais, preço normal do produto mais juros de 10%
 
+
 valor = float(input("valor do produto: "))
 
 while True:
@@ -36,7 +37,7 @@ while True:
         return desconto
 
     def parcelado(valor):
-        montante = valor * (1 + 0.10) ** parcelas
+        montante = valor + (valor / 100 * 10)
         return montante
 
 
