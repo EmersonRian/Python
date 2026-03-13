@@ -22,14 +22,14 @@ while True:
                 break
 
     def mostrar_lista():
-            """Mostrar nome das listas"""
-            for lugar, numero in enumerate(dicionario_listas_criadas):
+            for lugar, numero in enumerate(dicionario_listas_criadas,start= 1):
                 print(f"({lugar}) {numero["nome"]}")
+            
 
 
     def manusear_lista():
         """Mostrar produtos da lista"""
-        for produto, itens in enumerate(dicionario_listas_criadas[int(acessar_lista)]["itens"], start=1):
+        for produto, itens in enumerate(dicionario_listas_criadas[acessar_lista]["itens"], start=1):
             print(f"Itens {produto}: {itens}")
 
 
@@ -37,7 +37,7 @@ while True:
         print("Qual novo nome da lista?")
         novo_nome = input()
 
-        dicionario_listas_criadas[int(acessar_lista)]["nome"] = novo_nome
+        dicionario_listas_criadas[acessar_lista]["nome"] = novo_nome
         #limpar terminal
         os.system('cls')
 
@@ -50,10 +50,10 @@ while True:
         if alterar == "1":
             mudar_nome_lista()
         if alterar == "2":
-            local_iten = input("Qual itens alterar? Coloque o numero corespondente ao iten: ")
+            local_iten = int(input("Qual itens alterar? Coloque o numero corespondente ao iten: ")) - 1
             novo_iten = input("qual o novo iten? ")
 
-            dicionario_listas_criadas[int(acessar_lista)]["itens"][int(local_iten) - 1] = novo_iten
+            dicionario_listas_criadas[acessar_lista]["itens"][local_iten] = novo_iten
 
             #limpar terminal
             os.system('cls')
@@ -64,18 +64,17 @@ while True:
             excluir = input()
             if excluir == "1":
                 excluir_lista()
-
         
 
         
 
     def excluir_lista():
-        del dicionario_listas_criadas[int(acessar_lista)]["nome"]
-        del dicionario_listas_criadas[int(acessar_lista)]["itens"]
-        del dicionario_listas_criadas[{}]
+        dicionario_listas_criadas.pop(acessar_lista)
+        print("lista Excluida")
+        #limpar terminal
+        os.system('cls')
 
-
-        print(dicionario_listas_criadas)
+        
 
 
                 
@@ -97,26 +96,37 @@ while True:
 
         colocar_itens_lista()
         criar_lista(nome_lista,lista_de_compras)
-    
-    if resposta == "2": #Mostrar todas as listas criadas
-        
-        if len(lista_de_compras) == 0 or dicionario_listas_criadas == [{}]:
-            print("Ainda nao foi criado uma lista")
+
+
+    #Mostrar todas as listas criadas
+    if resposta == "2": 
+
+        if len(dicionario_listas_criadas) == 0:
+            print("Não á listas criadas")
+
         else:
+            lista_de_compras = []
             mostrar_lista()
-
             print("Qual lista deseja ver? digite o numero respectivo para ver a lista:")
-            acessar_lista = input()
+            acessar_lista = int(input()) - 1
 
-            manusear_lista()
-            mudar_iten()
+            if (len(dicionario_listas_criadas) - 1) < acessar_lista:
+                #limpar terminal
+                os.system('cls')
+
+                print("numero invalido: lista nao existe")
+
+            else:
+                manusear_lista()
+                mudar_iten()
             
 
 
 
         
-
+    #Terminar o sistema
     if resposta == "3":
+        print("Programa Finalizado")
         break
 
 
