@@ -74,15 +74,6 @@ while True:
         #limpar terminal
         os.system('cls')
 
-        
-
-
-                
-        
-
-
-
-
 
 
     if resposta != "1" and resposta != "2" and resposta != "3":
@@ -128,29 +119,3 @@ while True:
     if resposta == "3":
         print("Programa Finalizado")
         break
-
-
-# dicionario_listas_criadas = [{"nomes": "emerson", "itens": [1,2,3,4]}]
-
-
-# print(len(lista_de_compras))
-
-
-
-
-
-
-#     if resposta == "4":
-#         print("sistema finalizado")
-#         break
-# dicionario_listas_criadas.append({"nome": "emerson", "itens": lista_de_compras})
-
-
-
-
-# for numero, itens in enumerate(dicionario_listas_criadas["itens"]):
-#     print(itens)
-
-# for produto, itens in enumerate(dicionario_listas_criadas[0]["itens"], start=1):
-#     print(f"Produto {produto}: {itens}")
-
