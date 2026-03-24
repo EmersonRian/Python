@@ -1,3 +1,4 @@
+import random
 """
 Calculo do primeiro dígito do CPF
 CPF: 746.824.890-70
@@ -23,63 +24,62 @@ contrário disso:
 
 O primeiro dígito do CPF é 7
 """
+for i in range(10):
+
+    cpf = ""
 
 
-cpf = '746.824.890-70'
-# cpf = "061.565.203-41"
-cpf = '746824890'
-
-numeros_cpf_separados = []
-multiplicavel_1 = 10
-multiplicavel_2 = 11
-soma_numeros_primeiro_digito = []
-soma_numeros_sugundo_digito = []
+    numeros_cpf_separados = []
+    multiplicavel_1 = 10
+    multiplicavel_2 = 11
+    soma_numeros_primeiro_digito = []
+    soma_numeros_sugundo_digito = []
 
 
+    for _ in range(9):
+        cpf += str(random.randint(0, 9))
 
 
+    if len(cpf) > 11:
+        for i in cpf:
+            if i == "." or i == "-":
+                continue 
 
-if len(cpf) > 11:
-    for i in cpf:
-        if i == "." or i == "-":
-            continue 
-
-        numeros_cpf_separados.append(int(i))
+            numeros_cpf_separados.append(int(i))
+            
+    else:
+        for i in cpf:
+            numeros_cpf_separados.append(int(i))
         
-else:
-    for i in cpf:
-        numeros_cpf_separados.append(int(i))
-    
 
-for a in numeros_cpf_separados[:9]:
-    x = int(a) * multiplicavel_1
-    multiplicavel_1 -= 1
-    soma_numeros_primeiro_digito.append(x)
+    for a in numeros_cpf_separados[:9]:
+        x = int(a) * multiplicavel_1
+        multiplicavel_1 -= 1
+        soma_numeros_primeiro_digito.append(x)
 
-valor_primeiro =  sum(soma_numeros_primeiro_digito) * 10 % 11
-primeiro_digito_cpf = valor_primeiro if valor_primeiro <= 9 else 0
+    valor_primeiro =  sum(soma_numeros_primeiro_digito) * 10 % 11
+    primeiro_digito_cpf = valor_primeiro if valor_primeiro <= 9 else 0
+ 
 
-
-if primeiro_digito_cpf is not numeros_cpf_separados[-2]:
     numeros_cpf_separados.append(primeiro_digito_cpf)
 
 
 
-for i in numeros_cpf_separados[:10]:
-    x = int(i) * multiplicavel_2
-    multiplicavel_2 -= 1
-    soma_numeros_sugundo_digito.append(x)
+    for i in numeros_cpf_separados[:10]:
+        x = int(i) * multiplicavel_2
+        multiplicavel_2 -= 1
+        soma_numeros_sugundo_digito.append(x)
 
-valor_segundo = sum(soma_numeros_sugundo_digito) * 10 % 11
-segundo_digito_cpf = valor_segundo if valor_segundo <= 9 else 0
+    valor_segundo = sum(soma_numeros_sugundo_digito) * 10 % 11
+    segundo_digito_cpf = valor_segundo if valor_segundo <= 9 else 0
 
-numeros_cpf_separados.append(segundo_digito_cpf)
+    numeros_cpf_separados.append(segundo_digito_cpf)
 
-cpf_regularizado = numeros_cpf_separados
+    cpf_regularizado = numeros_cpf_separados
 
-for i in cpf_regularizado:
-        print(i,end="")
-
+    for i in cpf_regularizado:
+            print(i,end="")
+    print()
 
     
 

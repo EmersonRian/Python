@@ -5,7 +5,7 @@ palavras_aleatorias = [
     
     {"name": "aleatorio", "itens": ["Cogumelo","Hipopotamo","Passageiro","Pokemon","Jornada","açogueiro"]},
 
-    {"nome": "animais", "itens": ["aguia","papagaio","leoa","tataruga"]},
+    {"nome": "animais", "itens": ["aguia","papagaio","leoa","tartaruga"]},
                        
     {"nome": "comidas", "itens": ["cogumelo","pipoca","suchi","macarronada"]},
 
@@ -21,10 +21,14 @@ letras_tentadas = []
 
 
 while True:
-    print("Qual categoria de jogo vai ser? \n" "(1)Aleatorio (2)Animais (3)Comidas (4)Empregos (5)Anime")
+    print("Qual categoria de jogo vai ser? \n" "(1)Aleatorio (2)Animais (3)Comidas (4)Empregos (5)Anime (6)Colocar uma palavra")
     escolher = input()
 
     if escolher.isdigit():
+        if escolher == "6":
+            print("Qual a palavra?")
+            palavra_criada = input()
+            break
         break
     else:
         os.system("cls")
@@ -33,7 +37,11 @@ while True:
 
 
 alternativa = int(escolher) - 1
-palavra_escolhida = random.choice(palavras_aleatorias[alternativa]["itens"]).lower()
+if escolher == "6":
+    palavra_escolhida = palavra_criada.lower()
+    os.system("cls")
+if escolher != "6" :
+    palavra_escolhida = random.choice(palavras_aleatorias[alternativa]["itens"]).lower()
 
 
 
