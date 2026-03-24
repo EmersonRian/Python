@@ -1,73 +1,71 @@
-# import tkinter as tk
+import tkinter as tk
+from tkinter import ttk, PhotoImage
+
+janela_principal = tk.Tk() # Criando a janela
+janela_principal.title("Janela_Principal") #Colocando um titulo
+janela_principal.geometry("400x500+200+200") #Dimençoes da janela
+janela_principal.config(bg="lightblue") #conf basica de mudar cor
+
+#metodos para mexer no tamanho da janela e limite dele.
+# janela_principal.maxsize(800,600)
+# janela_principal.minsize(300,200)
+# janela_principal.resizable(False,True)
+# janela_principal.state("zoomed")
+# janela_principal.attributes("-alpha", 0.7)
+janela_principal.iconbitmap("imagens/genga.ico")
 
 
-# janela = tk.Tk()
-# janela.title("Janela")
-# janela.geometry("720x360")
-
-# def botao_faz():
-#     nome = texto_digitado.get()
-#     texto_2["text"] = f"Voce {nome}, apertou o botao"
+msg = tk.Label(janela_principal,text="JANELA PIVETE",bg="lightblue")
+msg.pack()
 
 
-# texto = tk.Label(janela,
-# text="Joguinho da Forca\n"
-# "______    \n"
-# "|    |    \n"
-# "|    O    \n"
-# "|   /|\\  \n"
-# "|   / \\  \n"
-# ""
-# )
-
-# texto.pack(padx=20)
-
-# texto_digitado = tk.Entry(janela)
-# texto_digitado.pack()
-# tk.Button(janela,text="Botão", command=botao_faz).pack()
-
-# texto_2 = tk.Label(janela,text="")
-# texto_2.pack()
+def abrir_segunda_janela():
+    segunda_janela = tk.Toplevel()
+    segunda_janela.title("Segundamente")
+    segunda_janela.config(bg="lightblue")
+    segunda_janela.iconbitmap("imagens/genga.ico")
 
 
-# janela.mainloop()
+    #Tamanho da janela
+    largura_janela = 400
+    altura_janela = 300
 
-# from tkinter import *
-# from tkinter import ttk
-# root = Tk()
-# frm = ttk.Frame(root, padding=10)
-# frm.grid()
-# ttk.Label(frm, text="Hello World!").grid(column=0, row=0)
-# ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
-# root.geometry("720x360")
+    #Obter dimenções da tela
+    largura_tela = segunda_janela.winfo_screenmmwidth()
+    altura_tela = segunda_janela.winfo_screenmmheight()
 
-# root.mainloop()
+    #Calculo do posicionamento centralizado da janela
+    x = (largura_janela - largura_tela) // 2
+    y = (altura_janela - altura_tela) // 2
 
-# import tkinter as tk
+    #Geometria da janela 2
+    segunda_janela.geometry(f"{largura_janela}x{altura_janela}+{x}+{y}")
 
-# def abrir_segunda_janela():
-#     # Esconde a janela principal
-#     janela1.withdraw()
+def definir_imagens(event):
+    largura_janela = janela_principal.winfo.width()
+    altura_janela = janela_principal.winfo.height()
+    largura_imagen = imagem.width()
+    altura_imagen = imagem.heigth()
+
+    posicao_x = (largura_janela - largura_imagen) // 2
+    posicao_y = (altura_janela - altura_imagen) // 2
+
+    lbl_imagem.place(x=posicao_x,y=posicao_y)
+
+imagem = PhotoImage(file="imagens/genga")
+lbl_imagem = ttk.Label(janela_principal, image=imagem)
+
+janela_principal.bind("<Configure>", definir_imagens)
+lbl_imagem.pack()
     
-#     # Cria a nova janela
-#     janela2 = tk.Toplevel()
-#     janela2.title("Segunda Janela")
-#     janela2.geometry("300x200")
-    
-#     # Botão para voltar
-#     btn_voltar = tk.Button(janela2, text="Voltar", command=lambda: voltar(janela2))
-#     btn_voltar.pack(pady=20)
 
-# def voltar(janela_atual):
-#     janela_atual.destroy() # Fecha a segunda janela
-#     janela1.deiconify() # Mostra a janela principal novamente
+botao = tk.Button(janela_principal, text="Botao", command=abrir_segunda_janela)
+botao.pack()
 
-# # Janela Principal
-# janela1 = tk.Tk()
-# janela1.title("Janela Principal")
-# janela1.geometry("300x200")
+# janela_principal.bind("<Button-1>", lambda event: abrir_segunda_janela())
 
-# btn_ir = tk.Button(janela1, text="Ir para Janela 2", command=abrir_segunda_janela)
-# btn_ir.pack(pady=20)
 
-# janela1.mainloop()
+janela_principal.mainloop()
+
+
+
