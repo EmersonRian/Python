@@ -24,6 +24,7 @@ def abrir_segunda_janela():
     segunda_janela.title("Segundamente")
     segunda_janela.config(bg="lightblue")
     segunda_janela.iconbitmap("imagens/genga.ico")
+    segunda_janela.attributes("-alpha", 0.7)
 
 
     #Tamanho da janela
@@ -41,22 +42,22 @@ def abrir_segunda_janela():
     #Geometria da janela 2
     segunda_janela.geometry(f"{largura_janela}x{altura_janela}+{x}+{y}")
 
-def definir_imagens(event):
-    largura_janela = janela_principal.winfo.width()
-    altura_janela = janela_principal.winfo.height()
-    largura_imagen = imagem.width()
-    altura_imagen = imagem.heigth()
+# def definir_imagens(event):
+#     largura_janela = janela_principal.winfo.width()
+#     altura_janela = janela_principal.winfo.height()
+#     largura_imagen = imagem.width()
+#     altura_imagen = imagem.heigth()
 
-    posicao_x = (largura_janela - largura_imagen) // 2
-    posicao_y = (altura_janela - altura_imagen) // 2
+#     posicao_x = (largura_janela - largura_imagen) // 2
+#     posicao_y = (altura_janela - altura_imagen) // 2
 
-    lbl_imagem.place(x=posicao_x,y=posicao_y)
+#     lbl_imagem.place(x=posicao_x,y=posicao_y)
 
-imagem = PhotoImage(file="imagens/genga")
-lbl_imagem = ttk.Label(janela_principal, image=imagem)
+# imagem = PhotoImage(file="imagens/genga")
+# lbl_imagem = ttk.Label(janela_principal, image=imagem)
 
-janela_principal.bind("<Configure>", definir_imagens)
-lbl_imagem.pack()
+# janela_principal.bind("<Configure>", definir_imagens)
+# lbl_imagem.pack()
     
 
 botao = tk.Button(janela_principal, text="Botao", command=abrir_segunda_janela)
